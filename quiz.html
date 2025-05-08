@@ -64,7 +64,6 @@
     }
 
     function showCTA() {
-      // Hide progress bar in Welcome screen
       document.getElementById("progressContainer").style.display = "none";
 
       const frequencyText = answers.frequency;
@@ -95,13 +94,15 @@
               <input type="hidden" name="goal" id="goalInput" />
               <input type="hidden" name="frequency" id="frequencyInput" />
               <input type="hidden" name="interest" id="interestInput" />
+
               <div class="consent-container">
                 <label>
                   <input type="checkbox" id="consentCheckbox" required />
                   I agree that my data will be used to contact me as described in the
-                  <a href="privacy.html" style="color: #00c853;" target="_blank">Privacy Policy</a>.
+                  <a href="privacy.html" target="_blank">Privacy Policy</a>.
                 </label>
               </div>
+
               <div id="consentError" class="consent-error">You must agree before submitting.</div>
               <button type="submit" class="quiz-cta-btn">Get Free Workout</button>
             </form>
@@ -109,77 +110,24 @@
         </div>
       `;
     }
-
-    function injectHiddenData() {
-  const goalInput = document.getElementById("goalInput");
-  const frequencyInput = document.getElementById("frequencyInput");
-  const interestInput = document.getElementById("interestInput");
-
-  if (!goalInput || !frequencyInput || !interestInput) {
-    console.warn("Hidden input fields not found!");
-    return;
-  }
-
-  goalInput.value = answers.goal || "";
-  frequencyInput.value = answers.frequency || "";
-  interestInput.value = answers.interest || "";
-
-  console.log("Data injected:", {
-    goal: goalInput.value,
-    frequency: frequencyInput.value,
-    interest: interestInput.value
-  });
-}
-
   </script>
 
   <footer class="footer">
     © 2025 Pocket Coach | All Rights Reserved | Built by 
-    <a href="https://sites.google.com/986productions.online/mauricecreating/meine-arbeit?authuser=0" target="_blank">MauriceCreating</a>
+    <a href="https://sites.google.com/986productions.online/mauricecreating" target="_blank">MauriceCreating</a>
     | <a href="privacy.html" target="_blank">Privacy Policy</a> | <a href="datenschutz.html" target="_blank">Datenschutz</a>
   </footer>
 
   <script>
-    // Falls injectHiddenData separat im <head> gebraucht wird
-    function injectHiddenData() {
-      const goalInput = document.getElementById("goalInput");
-      const frequencyInput = document.getElementById("frequencyInput");
-      const interestInput = document.getElementById("interestInput");
-
-      if (!goalInput || !frequencyInput || !interestInput) {
-        console.warn("Hidden input fields not found!");
-        return;
-      }
-
-      goalInput.value = answers.goal || "";
-      frequencyInput.value = answers.frequency || "";
-      interestInput.value = answers.interest || "";
-
-      console.log("Data injected:", {
-        goal: goalInput.value,
-        frequency: frequencyInput.value,
-        interest: interestInput.value
-      });
-    }
-  </script>
-  <script>
     console.log("🔥 Inline-Script ausgeführt");
   </script>
-  </body>
-  
+
+  <!-- formhandler.js wird geladen -->
   <script src="formhandler.js?cachebust=" + new Date().getTime()></script>
 
-  <!-- WICHTIG: formhandler.js wird geladen -->
-  <script>
-    console.log("🔥 formhandler.js wird jetzt versucht zu laden...");
-  </script>
-  
-  <script src="formhandler.js"></script>
-  
   <script>
     console.log("🔥 formhandler.js sollte jetzt geladen sein.");
   </script>
-  
+
 </body>
 </html>
-
